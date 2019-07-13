@@ -99,10 +99,11 @@ namespace client
 
         public async static void Login()
         {
+            label3.Text = "Connecting";
             api = InstaApiBuilder.CreateBuilder()
                 .SetUser(user)
                 .UseLogger(new DebugLogger(LogLevel.Exceptions))
-                .SetRequestDelay(RequestDelay.FromSeconds(7, 8))
+                .SetRequestDelay(RequestDelay.FromSeconds(0, 3))
                 .Build();
 
             var loginReguest = await api.LoginAsync();
